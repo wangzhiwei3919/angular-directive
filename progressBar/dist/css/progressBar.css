@@ -1,0 +1,204 @@
+.progress-main,
+.progress-cover,
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.progress-main .progress-bar {
+  border: 2px solid #dadee1;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  border-radius: 25px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  background: #00ff00;
+  transition: background 1s;
+}
+.progress-main .progress-bar .progress-value {
+  width: inherit;
+  height: 5%;
+}
+.progress-main .progress-bar .progress-cover {
+  position: absolute;
+  width: inherit;
+  background: white;
+  top: 0;
+  transition: width 1s, height 1s;
+}
+.progress-main .progress-bar .bg-white {
+  background: -webkit-linear-gradient(#eceeee, #eceeee 25%, #e6e7e7 25%, #e6e7e7 50%, #eceeee 50%, #eceeee 75%, #e6e7e7 75%, #e6e7e7 100%);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#eceeee, #eceeee 25%, #e6e7e7 25%, #e6e7e7 50%, #eceeee 50%, #eceeee 75%, #e6e7e7 75%, #e6e7e7 100%);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#eceeee, #eceeee 25%, #e6e7e7 25%, #e6e7e7 50%, #eceeee 50%, #eceeee 75%, #e6e7e7 75%, #e6e7e7 100%);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#eceeee, #eceeee 25%, #e6e7e7 25%, #e6e7e7 50%, #eceeee 50%, #eceeee 75%, #e6e7e7 75%, #e6e7e7 100%);
+  /* 标准的语法 */
+}
+.progress-main .progress-bar .bg-green {
+  background: -webkit-linear-gradient(#8dc63f, #8dc63f 25%, #a3d062 25%, #a3d062 50%, #8dc63f 50%, #8dc63f 75%, #a3d062 75%, #a3d062 100%);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#8dc63f, #8dc63f 25%, #a3d062 25%, #a3d062 50%, #8dc63f 50%, #8dc63f 75%, #a3d062 75%, #a3d062 100%);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#8dc63f, #8dc63f 25%, #a3d062 25%, #a3d062 50%, #8dc63f 50%, #8dc63f 75%, #a3d062 75%, #a3d062 100%);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#8dc63f, #8dc63f 25%, #a3d062 25%, #a3d062 50%, #8dc63f 50%, #8dc63f 75%, #a3d062 75%, #a3d062 100%);
+  /* 标准的语法 */
+}
+.progress-main .progress-bar .bg-red {
+  background: -webkit-linear-gradient(#f82c2c, #f82c2c 25%, #ff5f43 25%, #ff5f43 50%, #f82c2c 50%, #f82c2c 75%, #ff5f43 75%, #ff5f43 100%);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#f82c2c, #f82c2c 25%, #ff5f43 25%, #ff5f43 50%, #f82c2c 50%, #f82c2c 75%, #ff5f43 75%, #ff5f43 100%);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(#f82c2c, #f82c2c 25%, #ff5f43 25%, #ff5f43 50%, #f82c2c 50%, #f82c2c 75%, #ff5f43 75%, #ff5f43 100%);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(#f82c2c, #f82c2c 25%, #ff5f43 25%, #ff5f43 50%, #f82c2c 50%, #f82c2c 75%, #ff5f43 75%, #ff5f43 100%);
+  /* 标准的语法 */
+}
+.progress-main .progress-hints {
+  box-sizing: border-box;
+  position: absolute;
+  color: white;
+  padding: 0 5px;
+  background: rgba(54, 72, 96, 0.4);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  margin-top: -0.75em;
+  margin-left: 1em;
+  margin-right: 1em;
+  transition: top 1s,right 1s;
+}
+.progress-main .progress-hints:before {
+  display: inline-block;
+  content: '';
+  width: 0;
+  height: 0;
+  border: .5em solid transparent;
+  border-right-color: rgba(54, 72, 96, 0.4);
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+.progress-main .progress-hints.left1,
+.progress-main .progress-hints.left2 {
+  top: 50%;
+  right: 100%;
+}
+.progress-main .progress-hints.left1:before,
+.progress-main .progress-hints.left2:before {
+  display: inline-block;
+  content: '';
+  width: 0;
+  height: 0;
+  border: .5em solid transparent;
+  border-right-color: rgba(54, 72, 96, 0.4);
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  transform: rotate(180deg);
+  right: -0.96em;
+  left: inherit;
+}
+.progress-main .progress-hints.bottom1,
+.progress-main .progress-hints.bottom2 {
+  top: 100%;
+  margin: 10px 0;
+}
+.progress-main .progress-hints.bottom1:before,
+.progress-main .progress-hints.bottom2:before {
+  display: inline-block;
+  content: '';
+  width: 0;
+  height: 0;
+  border: .5em solid transparent;
+  border-right-color: rgba(54, 72, 96, 0.4);
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  transform: rotate(90deg);
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  top: initial;
+}
+.progress-main .progress-hints.right2,
+.progress-main .progress-hints.right1 {
+  top: 50%;
+  left: 100%;
+}
+.progress-main .progress-hints.top1,
+.progress-main .progress-hints.top2 {
+  bottom: 100%;
+  margin: 10px 0;
+}
+.progress-main .progress-hints.top1:before,
+.progress-main .progress-hints.top2:before {
+  display: inline-block;
+  content: '';
+  width: 0;
+  height: 0;
+  border: .5em solid transparent;
+  border-right-color: rgba(54, 72, 96, 0.4);
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+  transform: rotate(-90deg);
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: initial;
+}
+.progress-main .progress-hints.top1,
+.progress-main .progress-hints.bottom1 {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-main .progress-hints.top2,
+.progress-main .progress-hints.bottom2 {
+  margin-right: -18px;
+}
+.progress-main .progress-hints.middle1,
+.progress-main .progress-hints.middle2 {
+  margin: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+}
+.progress-main .progress-hints.middle1:before,
+.progress-main .progress-hints.middle2:before {
+  display: none;
+}
+.progress-main .progress-hints.middle1 {
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  width: calc(100% - 4px);
+  word-break: break-word;
+  text-align: center;
+  padding: 0;
+}
+.progress-main .progress-hints.middle2 {
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: calc(100% - 4px);
+}

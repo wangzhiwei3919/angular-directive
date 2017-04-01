@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../dist/lib/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/css/dialog.css"/>
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_mmb1425pfzi4fgvi.css"/>
+    <script type="text/javascript" src="../dist/app.js"></script>
+    <title>警告弹窗</title>
+    <script>
+        /**
+         *这是一个基本的警告弹窗
+         * 依赖 angular
+         * 需要 导入app.js,dialogBox.js指令
+         * dialog.css
+         *
+         */
+        app.controller('dialog', ['$scope', 'webRoot', function ($scope, webRoot) {
+            /**
+             *警告弹窗参数
+             */
+            $scope.isShow=false;//必须,否则无法控制显示\隐藏
+            $scope.tips='我是警告测试!!!';//非必须,默认值`确定执行这个操作吗?`
+            $scope.iconClass='icon-warning';//非必须,默认值`icon-warning`
+            $scope.callback=function(value){ //必须 value为回调值,TRUE表示确定按钮,FALSE表示取消
+                alert(value);
+                $scope.isShow=false;
+            };
+
+            /**
+             * 提示弹窗参数
+             */
+            $scope.tipsShow=false;
+            $scope.tipsContent='这是一个定时消失的提示弹窗...';
+            $scope.time=3000;//默认1000毫秒
+        }]);
+    </script>
+</head>
+<body ng-controller="dialog">
+<button style="padding: 20px 50px;" ng-click="isShow = true">警告弹窗测试,点我!</button>
+<button style="padding: 20px 50px;" ng-click="tipsShow = true">提示弹窗测试,点我!</button>
+
+
+<!-- 警告弹窗 -->
+<!-- 最简单配置: <warndialog d-show="isShow" d-callback="callback"></warndialog> -->
+<warndialog d-icon="iconClass" d-show="isShow" d-tips="tips" d-callback="callback"></warndialog>
+
+<!-- 提示弹窗 -->
+<!--<warndialog d-show="tipsShow" d-tips="tipsContent"></warndialog>-->
+<tipsdialog d-show="tipsShow" d-tips="tipsContent" d-time="time"></tipsdialog>
+
+<script type="text/javascript" src="../dist/directive/dialogBox.js"></script>
+
+</body>
+</html>

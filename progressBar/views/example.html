@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../dist/lib/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/css/progressBar.css"/>
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_mmb1425pfzi4fgvi.css"/>
+    <script type="text/javascript" src="../dist/app.js"></script>
+    <title>进度条例子</title>
+    <script>
+        /**
+         *这是一个基本的进度条指令
+         * 依赖 angular
+         * 需要 导入app.js,progressBar.js指令
+         * progressBar.css
+         *
+         */
+        app.controller('progressBar', ['$scope', 'webRoot', '$interval', function ($scope, webRoot, $interval) {
+            /**
+             *进度条参数
+             */
+            //最简参数
+            $scope.simpleScale={
+              currentValue:80
+            };
+            $scope.style = {};//传入空对象用于挂载
+
+
+            //完整参数
+            $scope.scale = {//必须,用于控制进度条
+                startValue: 0,//非必须,默认0
+                endValue: 100,//非必须,默认100
+                currentValue: 50,//必须,指定当前刻度
+                unit: '%'//非必须,默认%
+            };
+            $scope.style2 = {//非必须
+                type: 2,//非必须,默认值为1  1为垂直进度条,2为横向进度条
+                background: '#ff0000',//非必须,剩余数色值  默认#00ff00
+                coverColor: 'rgba(255,255,255,1)',//非必须 css 取值 默认#fff
+                hintsPosition: 'top'//非必须 五个取值,top,right,bottom,left,middle 默认right
+            };
+
+            /**
+             * 以下为事件处理
+             */
+
+            $interval(function(){
+                $scope.scale.currentValue+=10;
+                if($scope.scale.currentValue == 100){
+                    $scope.scale.currentValue=0;
+                }
+                if($scope.scale.currentValue<=20){
+                    $scope.style2.background='#ff0000';
+                }else if($scope.scale.currentValue<=50){
+                    $scope.style2.background='#00ff00';
+                }else{
+                    $scope.style2.background='#dcdcdc';
+                }
+            },1000);
+        }]);
+    </script>
+</head>
+<body ng-controller="progressBar" style="font-size: 12px;padding: 100px">
+<!-- 进度条的宽高受外层控制 -->
+<div style="height: 500px;width: 20px">
+    <!-- 最简单方式 -->
+    <progressbar p-scale="simpleScale" p-style="style"></progressbar>
+</div>
+<div style="height: 20px;width: 500px;margin: 50px">
+    <!--<progressbar p-styleT="style2" p-scale="scale"></progressbar>-->
+</div>
+<button ng-click="simpleScale.currentValue = simpleScale.currentValue == 20 ? 50 : 20">点我试试</button>
+<script type="text/javascript" src="../dist/directive/progressBar.js"></script>
+
+</body>
+</html>
